@@ -231,9 +231,9 @@ class Bitkub:
         return basic_request('POST', url, headers=self._get_headers(ts, sig), payload=payload)
 
     @check_in_attributes(["api_key", "api_secret"])
-    def crypto_withdraw(self, cur='', amt=0, adr='', mem=''):
+    def crypto_withdraw(self, cur='', amt=0, adr='', mem='', net=''):
         url = self._get_path("CRYPTO_WITHDRAW")
-        payload = self._get_payload(cur=cur, amt=amt, adr=adr, mem=mem)
+        payload = self._get_payload(cur=cur, amt=amt, adr=adr, mem=mem, net=net)
         ts = self.servertime()
         sig = self._get_signature('POST', ts, url, payload)
         
